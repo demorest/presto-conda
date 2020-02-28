@@ -1,0 +1,34 @@
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -43,9 +43,9 @@ CFITSIOLINK := $(shell pkg-config --libs cfitsio)
+ # The standard PRESTO libraries to link into executables
+ PRESTOLINK = $(CFITSIOLINK) -L$(PRESTO)/lib -lpresto $(FFTLINK)
+ 
+-CC = gcc
++#CC = gcc
+ #CC = clang-3.6
+-FC = gfortran
++#FC = gfortran
+ 
+ # Set this to true if you want to use OpenMP.  false otherwise
+ USEOPENMP = true
+@@ -54,8 +54,8 @@ USEOPENMP = true
+ USEPROFILE = false
+ 
+ # Very recent Intel CPUs might see a few percent speedup using -mavx
+-CFLAGS = -I$(PRESTO)/include $(GLIBINC) $(CFITSIOINC) $(PGPLOTINC) $(FFTINC) \
+-	-DUSEMMAP -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 \
++CFLAGS += -I$(PRESTO)/include $(GLIBINC) $(CFITSIOINC) $(PGPLOTINC) $(FFTINC) \
++	-DUSEFFTW -DUSEMMAP -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 \
+ 	-g -Wall -W -fPIC -O3 -ffast-math
+ CLINKFLAGS = $(CFLAGS)
+ 
+@@ -70,7 +70,7 @@ endif
+ # NOTE:  Be careful of upping the optimization on the
+ #        FFLAGs.  Certain compilers (i.e. on Intel Macs) will
+ #        cause errors for the code in least_squares.f
+-FFLAGS = -g -fPIC
++#FFLAGS = -g -fPIC
+ FLINKFLAGS = $(FFLAGS)
+ 
+ # Add flags we need for openmp
