@@ -22,7 +22,7 @@ before_install:
     - conda info -a
     - export LANG=en_US.UTF-8
 install:
-    - git clone --depth=1 https://github.com/scottransom/presto.git presto
+    - git clone https://github.com/scottransom/presto.git presto
 script:
     - conda build --python $BUILD_PY ./recipe
   # conda-build tests so we don't need to re-test
