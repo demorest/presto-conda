@@ -16,7 +16,8 @@ before_install:
     - conda config --set always_yes yes --set changeps1 no
     #- conda update -q conda
     # conda-build 3.16 is much faster on OSX:
-    - conda install conda-build=3.16 ripgrep
+    #- conda install conda-build=3.16 ripgrep
+    - conda install conda-build
     - conda config --add channels conda-forge
     - conda config --add channels demorest
     - conda info -a
