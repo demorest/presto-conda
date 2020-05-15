@@ -28,7 +28,7 @@ before_install:
 install:
     - git clone https://github.com/scottransom/presto.git presto
 script:
-    - conda build --python $BUILD_PY ./recipe
+    - conda build --python $BUILD_PY --numpy 1.14 ./recipe
   # conda-build tests so we don't need to re-test
 after_success:
     - conda activate base
