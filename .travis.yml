@@ -2,9 +2,12 @@ language: cpp
 compiler: gcc
 os:
     - linux
+    - osx
 env:
     - BUILD_PY=2.7
     - BUILD_PY=3.6
+    - BUILD_PY=3.7
+    - BUILD_PY=3.8
 before_install:
     - MINICONDA_VERSION=latest
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then MINICONDA_OS=Linux; else MINICONDA_OS=MacOSX; fi
