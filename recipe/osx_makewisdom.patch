@@ -3,9 +3,9 @@
 @@ -156,7 +156,7 @@ prep:
  
  makewisdom:
-        $(CC) $(CLINKFLAGS) -o $@ makewisdom.c $(FFTLINK)
--       ./makewisdom
-+       DYLD_FALLBACK_LIBRARY_PATH=$(PREFIX)/lib ./makewisdom
-        cp fftw_wisdom.txt $(PRESTO)/lib
+ 	$(CC) $(CLINKFLAGS) -o $@ makewisdom.c $(FFTLINK)
+-	./makewisdom
++	DYLD_FALLBACK_LIBRARY_PATH=$(PREFIX)/lib ./makewisdom
+ 	cp fftw_wisdom.txt $(PRESTO)/lib
  
  timetest:
