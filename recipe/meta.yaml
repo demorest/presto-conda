@@ -5,6 +5,7 @@ package:
 source:
     path: ../presto
     patches:
+        - osx_makewisdom.patch # [osx]
         - compilers.patch
 
 build:
