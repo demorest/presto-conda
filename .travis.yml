@@ -1,7 +1,7 @@
 language: cpp
 compiler: gcc
 os:
-    #    - linux
+    - linux
     - osx
 env:
     - BUILD_PY=2.7
@@ -25,10 +25,10 @@ before_install:
     - conda config --add channels demorest
     - conda info -a
     - export LANG=en_US.UTF-8
+    - BLDCMD="conda build --python $BUILD_PY --numpy 1.14 ./recipe"
 install:
     - git clone https://github.com/scottransom/presto.git presto
 script:
-    - BLDCMD="conda build --python $BUILD_PY --numpy 1.14 ./recipe"
     - $BLDCMD
   # conda-build tests so we don't need to re-test
 after_success:

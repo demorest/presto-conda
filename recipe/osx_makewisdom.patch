@@ -1,12 +1,13 @@
 --- a/src/Makefile
 +++ b/src/Makefile
-@@ -156,8 +156,7 @@ prep:
+@@ -156,8 +156,8 @@ prep:
  
  makewisdom:
  	$(CC) $(CLINKFLAGS) -o $@ makewisdom.c $(FFTLINK)
 -	./makewisdom
 -	cp fftw_wisdom.txt $(PRESTO)/lib
 +	cp makewisdom $(PRESTO)/lib
++	touch $(PRESTO)/lib/fftw_wisdom.txt
  
  timetest:
  	$(CC) -o $@ timetest.c
