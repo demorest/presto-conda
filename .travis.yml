@@ -28,10 +28,11 @@ before_install:
 install:
     - git clone https://github.com/scottransom/presto.git presto
 script:
-    - conda build --python $BUILD_PY --numpy 1.14 ./recipe
+    - BLDCMD="conda build --python $BUILD_PY --numpy 1.14 ./recipe"
+    - $BLDCMD
   # conda-build tests so we don't need to re-test
 after_success:
     - conda activate base
-    - export PKGFILE=$(conda build --python $BUILD_PY ./recipe --output)
+    - export PKGFILE=$($BLDCMD --output)
     - conda install anaconda-client
     - anaconda -t $CONDA_UPLOAD_TOKEN upload -u demorest --force $PKGFILE
